@@ -155,7 +155,7 @@ public class HVV_LogsRepacker {
             String strKey = ( String) entry.getKey();
             String strFiles = ( String) entry.getValue();
 
-            logger.debug( "key='" + strKey + "'. Values='" + strFiles + "'");
+            //logger.debug( "key='" + strKey + "'. Values='" + strFiles + "'");
 
             FileOutputStream fos;
             try {
@@ -166,6 +166,7 @@ public class HVV_LogsRepacker {
                 for( final String strFileNameToPack : arrFiles) {
 
                     //logger.info( ">>> " + strFileNameToPack);
+                    logger.info( strKey + " <<< " + strFileNameToPack);
                     
                     file = new File( strAMSrootEnvVar + "/logs/" + strFileNameToPack);
                     FileInputStream fis = new FileInputStream( file);
@@ -206,14 +207,14 @@ public class HVV_LogsRepacker {
             String strKey = ( String) entry.getKey();
             String strFiles = ( String) entry.getValue();
 
-            logger.debug( "key='" + strKey + "'. Values='" + strFiles + "'");
+            //logger.debug( "key='" + strKey + "'. Values='" + strFiles + "'");
 
             FileOutputStream fos;
 
             String [] arrFiles = strFiles.split( " ");
             for( final String strFileNameToPack : arrFiles) {
                 
-                //logger.info( ">>> " + strFileNameToPack);
+                logger.info( "удаляем файл " + strFileNameToPack);
                 
                 File f = new File( strAMSrootEnvVar + "/logs/" + strFileNameToPack);
                 f.delete();
